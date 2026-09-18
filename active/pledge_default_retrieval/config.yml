@@ -1,0 +1,16 @@
+display_name: PLEDGE (default retrieval)
+description: >
+  Same as pledge_baseline except retrieval.strategy is default: the user's
+  message is embedded and searched as-is, with no LLM query rewriting.
+conversation_history_turns: 6
+etl:
+  partition_strategy: fast
+  chunking_strategy: by_title
+  max_characters: 1500
+  overlap: 200
+index:
+  embedding_backend: openai
+  embedding_model: text-embedding-3-small
+  rag_top_k: 12
+retrieval:
+  strategy: default

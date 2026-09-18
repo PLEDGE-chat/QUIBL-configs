@@ -1,0 +1,18 @@
+display_name: PLEDGE (local embeddings)
+description: >
+  Same as pledge_baseline except index.embedding_backend is local instead of
+  openai: chunks are embedded with chromadb's built-in local model, no OpenAI
+  embedding calls or API cost.
+conversation_history_turns: 6
+etl:
+  partition_strategy: fast
+  chunking_strategy: by_title
+  max_characters: 1500
+  overlap: 200
+index:
+  embedding_backend: local
+  rag_top_k: 12
+retrieval:
+  strategy: multi_query
+  rewrite_model: gpt-5.4-nano
+  query_count: 4

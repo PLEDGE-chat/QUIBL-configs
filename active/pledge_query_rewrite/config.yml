@@ -1,0 +1,17 @@
+display_name: PLEDGE (query rewrite retrieval)
+description: >
+  Same as pledge_baseline except retrieval.strategy is query_rewrite instead
+  of multi_query: one LLM-rewritten search query per turn instead of several.
+conversation_history_turns: 6
+etl:
+  partition_strategy: fast
+  chunking_strategy: by_title
+  max_characters: 1500
+  overlap: 200
+index:
+  embedding_backend: openai
+  embedding_model: text-embedding-3-small
+  rag_top_k: 12
+retrieval:
+  strategy: query_rewrite
+  rewrite_model: gpt-5.4-nano

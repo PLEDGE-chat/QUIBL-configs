@@ -1,5 +1,8 @@
-display_name: PLEDGE
-description: Firearm safe storage guidance for adults.
+display_name: PLEDGE (3rd grade reading level)
+description: >
+  Same RAG pipeline and audience (parents/guardians) as pledge_baseline. Only
+  the orchestration prompt differs: explicitly instructed to write at a 3rd
+  grade reading level.
 conversation_history_turns: 6
 etl:
   partition_strategy: fast

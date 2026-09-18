@@ -1,0 +1,19 @@
+display_name: PLEDGE (basic chunking)
+description: >
+  Same as pledge_baseline except etl.chunking_strategy is basic instead of
+  by_title: documents are split by character count alone, ignoring section
+  headings.
+conversation_history_turns: 6
+etl:
+  partition_strategy: fast
+  chunking_strategy: basic
+  max_characters: 1500
+  overlap: 200
+index:
+  embedding_backend: openai
+  embedding_model: text-embedding-3-small
+  rag_top_k: 12
+retrieval:
+  strategy: multi_query
+  rewrite_model: gpt-5.4-nano
+  query_count: 4
